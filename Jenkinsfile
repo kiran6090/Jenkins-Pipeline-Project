@@ -1,11 +1,19 @@
 @Library('Jenkins-Shared-Library') _
 
+import Utils.HelloWorld
+
 pipeline {
     agent any
     stages {
         stage('Test Library') {
             steps {
-                echo 'Library loaded successfully!'
+                script {
+                    echo 'Library loaded successfully!'
+                    
+                    // Use the class from src/
+                    def greeting = HelloWorld.greet('Jenkins User')
+                    echo greeting
+                }
             }
         }
     }
