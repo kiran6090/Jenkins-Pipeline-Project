@@ -3,10 +3,38 @@
 pipeline {
     agent any
     stages {
-        stage('Test Library') {
+        stage('Checkout') {
             steps {
                 script {
-                    exampleStep('Jenkins Test User')
+                    checkoutStep()
+                }
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    installDependenciesStep()
+                }
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                script {
+                    runTestsStep()
+                }
+            }
+        }
+        stage('Publish Reports') {
+            steps {
+                script {
+                    publishReportsStep()
+                }
+            }
+        }
+        stage('Email Notification') {
+            steps {
+                script {
+                    emailNotificationStep()
                 }
             }
         }

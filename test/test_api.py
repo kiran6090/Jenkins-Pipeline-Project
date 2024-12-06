@@ -36,4 +36,14 @@ def test_objects_with_null_data(base_url_all_objects):
     null_data_objects = [obj for obj in json_data if obj["data"] is None]
     assert len(null_data_objects) > 0
 
+def test_object_count(base_url_all_objects):
+    """Verify the response contains the expected number of objects."""
+    response = requests.get(base_url_all_objects)
+    json_data = response.json()
+    assert len(json_data) == 13 
+    
+
+           
+    
+
 
