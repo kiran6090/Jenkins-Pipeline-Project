@@ -6,39 +6,26 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
-                    checkoutStep()
+                    checkoutStep() // Checkout code from the current branch
                 }
             }
         }
         stage('Install Dependencies') {
             steps {
                 script {
-                    installDependenciesStep()
+                    installDependenciesStep() // Set up the Python environment and install dependencies
                 }
             }
         }
         stage('Run Tests') {
             steps {
                 script {
-                    runTestsStep()
-                }
-            }
-        }
-        stage('Publish Reports') {
-            steps {
-                script {
-                    publishReportsStep()
-                }
-            }
-        }
-        stage('Email Notification') {
-            steps {
-                script {
-                    emailNotificationStep()
+                    runTestsStep() // Run the test suite
                 }
             }
         }
     }
 }
+
 
 
