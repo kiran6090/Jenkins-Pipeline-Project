@@ -1,0 +1,58 @@
+the application uploaded to cloud first . Then we check that the apllication properly flasing on the dashbord or not 
+
+
+1.Multi branching pipeline jobs and shared libraries devloping for application devlopment.
+2.Continous intigration system such as jenkins writing jenkinsfile for jobs with multistage pipeline .
+3.Infrastructure automation and deployment using Jenkins,Git,Terraform templates .
+4.Releasing the FOTA updates to vehicle using Pantaries .
+4.Robort framework to validate the Hil system setup using mpl library and validate the ECU .
+5.Devloping system like Prometheus ,grafana for monitoring .
+6.Devloping the CX pipeline using MPL to build the QNX,M7 software and then flasing QNX to VIP board
+7.Intigration of Sonarqube for code check .
+8.Troubleshoot and fixing issue with build tool like Gradle and Gradle test .
+9.Eclipse velocitas containerization of Vehicle application build.
+10.Build Software package and Vehicle package using MPL  .
+
+Bosch specific skills
+-------------------------------
+
+1.Software Package  (6/10)
+2.Vehicle Package   (6/10)
+3.FOTA              (8/10)
+4.Pantaries         (6/10)
+5.QNX               (8/10)
+6.M7 Software       (8/10)
+7.Vip Board         (7/10)
+8.ECU               (5/10)
+9.Eclipse Velocitas (5/10) 
+10.Hil System       (5/10)
+
+
+
+// vars/runTests.groovy
+def call() {
+    // Step 1: Run the specific pytest test file 'test/test_api.py'
+    echo 'Running pytest tests for test/test_api.py...'
+    bat 'pytest test --maxfail=1 --disable-warnings -q'
+}
+
+
+
+
+@Library('Jenkins-Pipeline-Project') _
+
+pipeline {
+    agent any
+    environment {
+        PATH = "C:\\Windows\\System32;C:\\Program Files\\Python312\\;C:\\Program Files\\Python312\\Scripts\\;%PATH%"
+    }
+    stages {
+        stage('Install and Test') {
+            steps {
+                script {
+                    runTests()  // Call the runTests function to install dependencies and run pytest
+                }
+            }
+        }
+    }
+}

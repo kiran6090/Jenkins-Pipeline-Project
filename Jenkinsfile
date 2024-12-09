@@ -13,6 +13,14 @@ pipeline {
                 }
             }
         }
+        stage('Publish Reports') {
+            steps {
+                script {
+                    publishTestReports()  // Call the function to publish the test reports
+                }
+            }
+        }
     }
 }
+
 
