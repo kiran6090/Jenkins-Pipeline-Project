@@ -1,12 +1,13 @@
 @Library('Jenkins-Pipeline-Project') _
 
+
 pipeline {
     agent any
     stages {
-        stage('Hello') {
+        stage('Install and Test') {
             steps {
                 script {
-                    helloWorld()  // Call the helloWorld function from the MPL
+                    runTests()  // Call the runTests function to install dependencies and run pytest
                 }
             }
         }
