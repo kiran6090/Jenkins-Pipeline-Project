@@ -1,16 +1,10 @@
 def call() {
-    stage('Publish Reports') {
-        echo 'Publishing test reports...'
-        // Use publishHTML to publish HTML reports
-        publishHTML(target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: true,
-            keepAll: true,
-            reportDir: 'test-reports/html',
-            reportFiles: 'index.html',
-            reportName: 'Test Report'
-        ])
-    }
+    // Publish JUnit test results
+    junit '**/reports/test-results.xml'
+
+    // Archive the reports for later use
+    archiveArtifacts artifacts: 'reports/test-results.xml', allowEmptyArchive: true
 }
+
 
 
