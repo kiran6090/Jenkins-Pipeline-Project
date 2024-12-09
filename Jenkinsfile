@@ -3,7 +3,7 @@
 pipeline {
     agent any
     environment {
-        PATH = "C:\\Windows\\System32;C:\\Program Files\\Python312\\;C:\\Program Files\\Python312\\Scripts\\;%PATH%"
+        PATH = "C:\\Windows\\System32;C:\\Program Files\\Python312\\;%PATH%"
     }
     stages {
         stage('Install and Test') {
