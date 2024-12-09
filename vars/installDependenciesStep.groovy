@@ -1,5 +1,5 @@
 def call(Map config = [:]) {
-    bat '''
+    sh '''
         python -m venv venv
         venv\\Scripts\\activate
         pip install -r test\\requirements.txt

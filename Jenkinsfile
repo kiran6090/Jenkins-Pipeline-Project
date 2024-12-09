@@ -2,35 +2,14 @@
 
 pipeline {
     agent any
-
     stages {
-        stage('Checkout') {
+        stage('Hello') {
             steps {
                 script {
-                    // Checkout the code from the repository using the shared library method
-                    MPLModule('Checkout')
-                }
-            }
-        }
-
-        stage('Setup Environment') {
-            steps {
-                script {
-                    // Set up the Python environment and install dependencies
-                    MPLModule('SetupEnvironment')
-                }
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                script {
-                    // Run tests in the virtual environment
-                    MPLModule('RunTests')
+                    helloWorld()  // Call the helloWorld function from the MPL
                 }
             }
         }
     }
 }
-
 
