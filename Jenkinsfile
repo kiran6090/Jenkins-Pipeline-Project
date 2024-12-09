@@ -6,26 +6,27 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
-                    checkoutStep() // Checkout code from the current branch
+                    MPLModule('Checkout', [url: scm.userRemoteConfigs[0].url])
                 }
             }
         }
-        stage('Install Dependencies') {
+        stage('Setup Environment') {
             steps {
                 script {
-                    installDependenciesStep() // Set up the Python environment and install dependencies
+                    MPLModule('SetupEnvironment')
                 }
             }
         }
         stage('Run Tests') {
             steps {
                 script {
-                    runTestsStep() // Run the test suite
+                    MPLModule('RunTests')
                 }
             }
         }
     }
 }
+
 
 
 

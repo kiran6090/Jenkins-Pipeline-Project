@@ -1,7 +1,7 @@
-def call(Map config = [:]) {
-    bat '''
+void call(Map args = [:]) {
+    sh """
         python -m venv venv
-        venv\\Scripts\\activate
-        pip install -r test\\requirements.txt
-    '''
+        source venv/bin/activate || venv\\Scripts\\activate
+        pip install -r requirements.txt
+    """
 }
