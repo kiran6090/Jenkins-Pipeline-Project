@@ -1,10 +1,17 @@
-// vars/publishTestReports.groovy
 def call() {
-    // Define the location of your test report (adjust the path as needed)
-    def testReportPath = 'reports/test-results.xml'  // Path to your JUnit XML report
-
-    // Archive the test reports for Jenkins to process
-    junit(testReportPath)
-
-    
+    stage('Publish Reports') {
+        steps {
+            echo 'Publishing test reports...'
+            // Adjust the paths and tools based on your test framework and report type
+            publishHTML(target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'test-reports/html',
+                reportFiles: 'index.html',
+                reportName: 'Test Report'
+            ])
+        }
+    }
 }
+
