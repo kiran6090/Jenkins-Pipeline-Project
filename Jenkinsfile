@@ -2,15 +2,17 @@
 
 pipeline {
     agent any
+
     stages {
         stage('Checkout') {
             steps {
                 script {
-                    // Checkout the code from the repository
-                    MPLModule('Checkout', [url: scm.userRemoteConfigs[0].url])
+                    // Checkout the code from the repository using the shared library method
+                    MPLModule('Checkout')
                 }
             }
         }
+
         stage('Setup Environment') {
             steps {
                 script {
@@ -19,6 +21,7 @@ pipeline {
                 }
             }
         }
+
         stage('Run Tests') {
             steps {
                 script {
@@ -29,6 +32,5 @@ pipeline {
         }
     }
 }
-
 
 
