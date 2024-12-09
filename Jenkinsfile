@@ -20,19 +20,6 @@ pipeline {
                 }
             }
         }
-        stage('Send Email with Report') {
-            steps {
-                script {
-                    // Define the test report path
-                    def reportPath = "${env.WORKSPACE}\\reports\\test-results.xml"
-                    // Send email with the report
-                    sendEmailNotification(
-                        recipient: 'kiran.shankarmandal@in.bosch.com',
-                        additionalInfo: "The test report is attached. Please find the report at: ${reportPath}"
-                    )
-                }
-            }
-        }
     }
 }
 
