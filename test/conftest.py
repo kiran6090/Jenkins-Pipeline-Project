@@ -33,9 +33,9 @@ def sample_payload():
     }
     
 @pytest.fixture(scope="session")
-def base_url_update():
+def base_url_put():
     """Fixture for the base URL for updating an object."""
-    return "https://api.restful-api.dev/objects/7"
+    return "https://api.restful-api.dev/objects"
 
 @pytest.fixture
 def update_payload():
@@ -54,5 +54,18 @@ def update_payload():
 @pytest.fixture(scope="session")
 def base_url_delete():
     """Fixture for the base URL for deleting an object."""
-    return "https://api.restful-api.dev/objects/6"        
+    return "https://api.restful-api.dev/objects" 
+
+@pytest.fixture(scope="session")
+def base_url_patch():
+    """Fixture for the base URL for updating an object."""
+    return "https://api.restful-api.dev/objects/7"
+@pytest.fixture
+def patch_payload():
+    """Fixture for the payload for updating an patch."""
+    return {
+           "name": "Apple MacBook Pro 16 (Updated Name)"
+}
+
+   
 

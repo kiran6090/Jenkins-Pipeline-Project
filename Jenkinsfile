@@ -2,10 +2,17 @@
 
 pipeline {
     agent any
-    environment {
-        PATH = "C:\\Windows\\System32;C:\\Program Files\\Python312\\;C:\\Program Files\\Python312\\Scripts\\;%PATH%"
-    }
+    
     stages {
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    // Function to install dependencies from requirements.txt
+                    installDependencies()  // Call the installDependencies function
+                }
+            }
+        }
+        
         stage('Install and Test') {
             steps {
                 script {
@@ -13,6 +20,7 @@ pipeline {
                 }
             }
         }
+        
         stage('Publish Reports') {
             steps {
                 script {
@@ -22,5 +30,4 @@ pipeline {
         }
     }
 }
-
 

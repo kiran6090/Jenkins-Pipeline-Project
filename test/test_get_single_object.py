@@ -10,6 +10,7 @@ def test_get_single_object_response_format(base_url_single_object):
     response = requests.get(base_url_single_object)
     json_data = response.json()
     assert isinstance(json_data, dict)
+   
 
 def test_single_object_contains_expected_fields(base_url_single_object):
     """Verify the object contains the required fields."""
@@ -29,3 +30,5 @@ def test_single_object_data_validation(base_url_single_object):
     assert json_data["data"]["price"] == 1849.99
     assert json_data["data"]["CPU model"] == "Intel Core i9"
     assert json_data["data"]["Hard disk size"] == "1 TB"
+    print(json_data)
+

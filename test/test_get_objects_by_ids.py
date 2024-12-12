@@ -44,3 +44,4 @@ def test_objects_with_null_data(base_url_by_ids):
     json_data = response.json()
     null_data_objects = [obj for obj in json_data if obj["data"] is None]
     assert len(null_data_objects) == 0
+    print(json_data)
